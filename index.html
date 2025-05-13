@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css"/>
+        <title>Movie App</title>
+        <!-- The icon used https://www.icons101.com/icon/id_78884/setid_2765/Icons_Material_Design_by_Rammist/movie -->
+        <link rel="icon" href="https://www.icons101.com/icon_ico/id_78884/movie.ico" />
+
+       
+
+    </head>
+    <body class="">
+        <nav class="nav">
+
+            <div class="off-screen-menu" id="off-screen-menu">
+                <ul>
+                    <button class="ripple" id="randomBtn">Random Movies</button>
+                    <button class="ripple" id="randomTV">Random TV Shows</button>
+                    <button class="ripple" id="TV">TV</button>
+                    <button class="ripple" id="Movie">Movies</button>
+                    <button class="ripple" id="toprated">Top Rated Movies</button>
+                </ul>
+            </div>
+
+            <div class="menu">
+                <span class="item-1"></span>
+                <span class="item-2"></span>
+                <span class="item-3"></span>
+                <span class="item-4">Menu</span>
+            </div>
+
+            <button class="dark-toggle" id="dark-toggle"> <img class="toggleImg" id="darkImg" src="https://cdn-icons-png.freepik.com/512/6714/6714978.png"></button>
+            <h1 id="title">Trending Movies This Week</h1>
+            <form id="form">
+                <input type="text" id="search" class="search" placeholder="Search">
+            </form>
+            <button class="logo" id="logo"><img class="img" src="https://www.icons101.com/icon_ico/id_78884/movie.ico"></button>
+        </nav>
+
+        <main id="main"></main>
+
+        <div class="bottomBtns" id="bottomBtns">
+            <button class="ripple" id="prev">Prev</button>
+            <div class="counter" id="counter"></div>
+            <button class="ripple" id="next">Next</button>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
