@@ -21,4 +21,8 @@ Dark mode can be toggled by clicking on the "moon" symbol.
 
 ![Screen shot of the movie app displaying the trending movies at the time this image was taken.](./images/movieappscreenshot.png)
 
+![](./images/movieappscreenshot3.png)
+
+![](./images/movieappscreenshot4.png)
+
 API used from: https://www.themoviedb.org/?language=en-US
