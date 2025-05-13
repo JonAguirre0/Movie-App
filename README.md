@@ -18,6 +18,7 @@ Dark mode can be toggled by clicking on the "moon" symbol.
 * index.html : This file contains the HTML code for the app.
 * style.css : This file contains the CSS code for the app.
 * script.js : This file contains the JavaScript code for the apps functionality.
+* images Folder : This folder contains the images which are used in the README.
 
 ![Screen shot of the movie app displaying the trending movies at the time this image was taken.](./images/movieappscreenshot.png)
 
