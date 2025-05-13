@@ -1,6 +1,8 @@
 # Getting Started
 Run the app on your local server(localhost).
 
+**User will need to provided their own API key from.** https://www.themoviedb.org/?language=en-US
+
 Clicking on the "menu" will display multiple buttons for the user to choose from.
 
 ![Screen shot displaying the menu while open.](./images/movieappscreenshot2.png)
