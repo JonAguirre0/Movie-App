@@ -2,6 +2,7 @@
 Run the app on your local server(localhost).
 
 Clicking on the "menu" will display multiple buttons for the user to choose from.
+![Screen shot displaying the menu while open.](./images/moviescreenshot2.png)
 
 The search bar can be used to look up a specific title, both shows and movies will show that are close to the provided title name.
 
