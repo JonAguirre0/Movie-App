@@ -5,9 +5,10 @@ let page = 1
 let isTV = false
 let isTopRated = false
 
-//the api url for the next button
-const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=?c&page=${page}`
 const API_KEY = '?'
+
+//the api url for the next button
+const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=${API_KEY}&page=${page}`
 //below is the trending this week api url
 const API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=${API_KEY}`
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
@@ -19,9 +20,9 @@ const RANDOM_API_URL = `https://api.themoviedb.org/3/discover/movie?include_adul
 const TV_API = `https://api.themoviedb.org/3/trending/tv/week?&api_key=${API_KEY}`
 
 // Testing below
-const upcomingMovies = `https://api.themoviedb.org/3/movie/upcoming?&api_key=?&page=${page}`
-const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=?&page=${page}`
-const people = `https://api.themoviedb.org/3/person/${page}?api_key=?`
+const upcomingMovies = `https://api.themoviedb.org/3/movie/upcoming?&api_key=${API_KEY}&page=${page}`
+const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=${API_KEY}&page=${page}`
+const people = `https://api.themoviedb.org/3/person/${page}?api_key=${API_KEY}`
 
 const main = document.getElementById('main')
 const form = document.getElementById('form')
@@ -190,7 +191,7 @@ randomBtn.addEventListener('click', () => {
 //this function is so that every time you load the page you get a random api page which displays different movies
 function getRandomMovies() {
     const randomPage = Math.floor(Math.random() * 500) + 1
-    const RANDOM_API_URL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=?&page=${randomPage}`;
+    const RANDOM_API_URL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=${API_KEY}&page=${randomPage}`;
     getMovies(RANDOM_API_URL)
 }
 
@@ -226,11 +227,11 @@ function getNextPage() {
         console.log("tv next")
         title.innerHTML = `Trending TV Shows Page ${page}`
     } else if(isTopRated){
-        const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=?&page=${page}`
+        const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=${API_KEY}&page=${page}`
         getTopratedMovies(topratedMovies)
         title.innerHTML = `Top Rated Movies Page ${page}`;
     } else {
-        const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=?&page=${page}`
+        const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=${API_KEY}&page=${page}`
         getMovies(NEXT_API_URL)
         console.log("movie next")
         title.innerHTML = `Trending Movies Page ${page}`
@@ -252,12 +253,12 @@ function getPrevPage() {
         getTvPage(TV_API)
         title.innerHTML = `Trending TV Shows Page ${page}`
     } else if(isTopRated){
-        const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=?&page=${page}`
+        const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=${API_KEY}&page=${page}`
         getTopratedMovies(topratedMovies)
         title.innerHTML = `Top Rated Movies Page ${page}`;
     }
     else {
-        const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=?&page=${page}`
+        const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=${API_KEY}&page=${page}`
         getNextPage(NEXT_API_URL)
         title.innerHTML = `Trending Movies Page ${page}`
     }
@@ -281,7 +282,7 @@ movie.addEventListener('click', () => {
     page =1
     isTV = false
     isTopRated = false
-    const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=?&page=${page}`
+    const NEXT_API_URL = `https://api.themoviedb.org/3/trending/movie/week?&api_key=${API_KEY}&page=${page}`
     getNextPage(NEXT_API_URL)
     counter.innerHTML = `${page}`
     //to display the prev, counter, next elements
@@ -296,7 +297,7 @@ topratedBtn.addEventListener('click', () => {
     isTV = false
     isTopRated = true
     title.innerHTML = "Top Rated Movies"
-    const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=?&page=${page}`
+    const topratedMovies = `https://api.themoviedb.org/3/movie/top_rated?&api_key=${API_KEY}&page=${page}`
     getTopratedMovies(topratedMovies)
     counter.innerHTML = `${page}`
     //to display the prev, counter, next elements
