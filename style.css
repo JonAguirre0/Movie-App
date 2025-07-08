@@ -6,6 +6,7 @@
 
     --text-color: black;
     --bkg-color: rgb(244, 244, 244);
+    --boxshadow: -5px 5px 7px rgba(0,0,0,0.2);
 
     --ripple-color: black;
 }
@@ -27,6 +28,7 @@ body.dark-theme {
     --text-color: white;
     --bkg-color: #121212;
     --ripple-color: white;
+    --boxshadow: -5px 5px 7px rgba(255,255,255,0.2);
 }
 
 /* Nav Bar */
@@ -150,6 +152,7 @@ main {
 
     margin: 0rem 5rem;
     margin-bottom: 2rem;
+    margin-top: 6.5rem;
 }
 
 .movie {
@@ -158,7 +161,8 @@ main {
     /* margin: 0.5rem; */
     /* background-color: var(--secondary-color); */
     background-color: var(--bkg-color);
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    /* box-shadow: 0 4px 5px rgba(0,0,0,0.2); */
+    box-shadow: var(--boxshadow);
     position: relative;
     overflow: hidden;
     border-radius: 3px;
@@ -493,7 +497,7 @@ button .circle {
     height: 10vh;
     position: fixed;
     top: 0;
-    right: -950px;
+    right: -1000px;
     display: flex;
     align-items: center;    
     justify-content: center;
@@ -600,4 +604,54 @@ button .circle {
 }
 .menu.active .item-4 {
     background-color: transparent;
+}
+
+
+button#genre {
+    /* background-color: lightblue; */
+    background-color: var(--bkg-color);
+    padding: 0.1rem 1rem;
+    border: 3px solid var(--secondary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0rem;
+    font-family: inherit;
+    font-size: 1.2rem;
+    /* color: var(--primary-color); */
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+button#genre:focus {
+    outline: none;
+}
+button#genre:hover {
+    opacity: 0.7;
+}
+button#genre:active {
+    transform: scale(0.9);
+}
+
+.genre {
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--bkg-color);
+    box-shadow: var(--boxshadow);
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    top: 20rem;
+    cursor: pointer;
+    z-index: 100;
+}
+.genre-info {
+    /* color: white; */
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
 }

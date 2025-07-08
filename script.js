@@ -4,6 +4,9 @@
 let page = 1
 let isTV = false
 let isTopRated = false
+let isGenre = false
+let currentGenreId = null
+let currentGenreName = null
 
 const API_KEY = '?'
 
@@ -154,6 +157,52 @@ function showTopratedMovies(topratedMovies) {
         `
         main.appendChild(topratedMovieEl)
     })
+}
+
+//Gets the Genres
+async function getGenres(url) {
+    main.innerHTML = ''
+    const res = await fetch(url)
+    const data = await res.json()
+    
+    showGenres(data.genres)
+}
+//Displays the geners
+function showGenres(genres) {
+    genres.forEach((genre) => {
+        const { id, name } = genre
+
+        const genreEl = document.createElement('div')
+        genreEl.classList.add('genre')
+        genreEl.innerHTML = `
+            <div class="genre-info">
+                <h3>${name}</h3>
+            </div> 
+        `
+
+        genreEl.addEventListener('click', () => {
+            isGenre = true
+            getMoviesByGenre(id,name)
+        })
+
+        main.appendChild(genreEl)
+    })
+}
+//Gets the movies based on the genre
+async function getMoviesByGenre(genreId,name) {
+    main.innerHTML= ''
+    currentGenreId = genreId
+    currentGenreName = name
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${page}`
+    
+    const res = await fetch(url)
+    const data = await res.json()
+
+    title.innerHTML = `Browsing by ${name} Movies`
+    document.getElementById("prev").style.display = 'block'
+    document.getElementById("counter").style.display = 'block'
+    document.getElementById("next").style.display = 'block'
+    showMovies(data.results)
 }
 
 //The search bar function
@@ -307,6 +356,20 @@ topratedBtn.addEventListener('click', () => {
     
 })
 
+const genre = document.getElementById('genre')
+genre.addEventListener('click', () => {
+    page = 1
+    title.innerHTML = 'Browse by Genre'
+    counter.innerHTML = `${page}`
+    const API_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
+    
+    getGenres(API_GENRES)
+
+    document.getElementById("prev").style.display = 'none'
+    document.getElementById("counter").style.display = 'none'
+    document.getElementById("next").style.display = 'none'
+})
+
 //The below are for the "ripple" effect when the user clicks on a button
 const buttons = document.querySelectorAll('.ripple'||'.tvmovie')
 buttons.forEach(button => {
@@ -343,8 +406,6 @@ const darkModeBtn = document.querySelector('.dark-toggle')
 darkModeBtn.addEventListener('click', () => {
     if(darkImg.src === 'https://cdn-icons-png.freepik.com/512/6714/6714978.png'){
         darkImg.src = 'https://static.thenounproject.com/png/979909-200.png'
-        //below is the white sun img
-        //darkImg.src = 'https://media.istockphoto.com/id/1417730979/vector/sun-dark-mode-glyph-ui-icon.jpg?s=612x612&w=0&k=20&c=a0sZ_9VrtPK44k78IM-Zgjhz79hmx5eIyOCX1FoqYko='
         document.body.classList.toggle('dark-theme')
     } else {
         darkImg.src = 'https://cdn-icons-png.freepik.com/512/6714/6714978.png'
